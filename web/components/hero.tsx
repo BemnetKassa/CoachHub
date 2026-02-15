@@ -1,37 +1,82 @@
+'use client';
+
+import { motion } from 'framer-motion';
+import Link from 'next/link';
+import { ArrowRight } from 'lucide-react';
+
 export default function Hero() {
-	return (
-		<section className="relative overflow-hidden bg-gray-900 text-white flex items-center min-h-[80vh]">
-			<div className="absolute inset-0 bg-black/50 z-10" />
-			<div className="absolute inset-0 z-0">
-				<img
-					src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&q=80"
-					alt="Training"
-					className="w-full h-full object-cover"
-				/>
-			</div>
-			<div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 text-center">
-				<h1 className="text-4xl md:text-6xl font-extrabold tracking-tight mb-6">
-					Transform Your Body,<br />
-					Transform Your Life
-				</h1>
-				<p className="mt-4 max-w-2xl mx-auto text-xl text-gray-300 mb-10">
-					Professional bodybuilding coaching tailored to your goals. Join thousands who have changed their lives.
-				</p>
-				<div className="flex justify-center space-x-4">
-					<a
-						href="/register"
-						className="inline-flex items-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-gray-900 bg-yellow-400 hover:bg-yellow-500 transition-colors"
-					>
-						Start Your Journey
-					</a>
-					<a
-						href="/programs"
-						className="inline-flex items-center px-8 py-3 border border-white text-base font-medium rounded-md text-white hover:bg-white/10 transition-colors"
-					>
-						View Programs
-					</a>
-				</div>
-			</div>
-		</section>
-	);
+  return (
+    <section className="relative h-screen flex items-center justify-center overflow-hidden bg-neutral-950">
+      {/* Background Image with Overlay */}
+      <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 bg-gradient-to-r from-neutral-950 via-neutral-950/80 to-neutral-950/40 z-10" />
+        <img
+          src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2070&auto=format&fit=crop"
+          alt="Bodybuilder training"
+          className="w-full h-full object-cover opacity-60"
+        />
+      </div>
+
+      <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-start pt-20">
+        <motion.div
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <span className="text-red-600 font-bold tracking-widest text-sm md:text-base mb-4 block uppercase">
+            Elite Bodybuilding Coaching
+          </span>
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-white leading-tight tracking-tighter mb-6">
+            FORGE YOUR <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-600">
+              LEGACY
+            </span>
+          </h1>
+          <p className="max-w-xl text-lg md:text-xl text-neutral-400 mb-10 leading-relaxed">
+            Stop guessing. Start transforming. Join the elite coaching program designed to push your limits and sculpt your physique.
+          </p>
+          
+          <div className="flex flex-col sm:flex-row gap-4">
+            <Link 
+              href="/register" 
+              className="group relative px-8 py-4 bg-red-600 text-white font-bold text-lg tracking-wide overflow-hidden rounded-sm"
+            >
+              <span className="relative z-10 flex items-center gap-2">
+                START TRAINING <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </span>
+              <div className="absolute inset-0 bg-red-700 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300" />
+            </Link>
+            
+            <Link 
+              href="/programs" 
+              className="px-8 py-4 border border-neutral-700 text-white font-bold text-lg tracking-wide hover:bg-neutral-800 transition-colors rounded-sm flex items-center justify-center"
+            >
+              VIEW PROGRAMS
+            </Link>
+          </div>
+        </motion.div>
+
+        {/* Stats */}
+        <motion.div 
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5, duration: 0.8 }}
+          className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-16 border-t border-neutral-800 pt-8"
+        >
+          <div>
+            <div className="text-3xl md:text-4xl font-black text-white">500+</div>
+            <div className="text-sm text-neutral-500 font-bold uppercase tracking-wider">Clients Transformed</div>
+          </div>
+          <div>
+            <div className="text-3xl md:text-4xl font-black text-white">10+</div>
+            <div className="text-sm text-neutral-500 font-bold uppercase tracking-wider">Years Experience</div>
+          </div>
+          <div>
+            <div className="text-3xl md:text-4xl font-black text-white">100%</div>
+            <div className="text-sm text-neutral-500 font-bold uppercase tracking-wider">Commitment</div>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
 }

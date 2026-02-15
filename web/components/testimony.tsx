@@ -1,41 +1,84 @@
+'use client';
+
+import { motion } from 'framer-motion';
+import { Star } from 'lucide-react';
+
 export default function Testimony() {
-	return (
-		<section className="py-20 bg-white">
-			<div className="max-w-6xl mx-auto px-4">
-				<h2 className="text-3xl font-extrabold text-gray-900 text-center mb-12">Transformations & Testimonials</h2>
-				<div className="grid md:grid-cols-3 gap-8">
-					<div className="bg-gray-50 p-6 rounded-lg shadow">
-						<p className="text-gray-700 mb-4">“CoachHub changed my life! I lost 15kg and gained confidence I never thought possible.”</p>
-						<div className="flex items-center">
-							<img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client" className="w-12 h-12 rounded-full mr-3" />
-							<div>
-								<div className="font-bold">Abel T.</div>
-								<div className="text-xs text-gray-500">Addis Ababa</div>
-							</div>
-						</div>
-					</div>
-					<div className="bg-gray-50 p-6 rounded-lg shadow">
-						<p className="text-gray-700 mb-4">“The personalized plans and weekly check-ins kept me motivated. Highly recommend!”</p>
-						<div className="flex items-center">
-							<img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Client" className="w-12 h-12 rounded-full mr-3" />
-							<div>
-								<div className="font-bold">Mimi G.</div>
-								<div className="text-xs text-gray-500">Bahir Dar</div>
-							</div>
-						</div>
-					</div>
-					<div className="bg-gray-50 p-6 rounded-lg shadow">
-						<p className="text-gray-700 mb-4">“I never thought online coaching could be this effective. The results speak for themselves.”</p>
-						<div className="flex items-center">
-							<img src="https://randomuser.me/api/portraits/men/65.jpg" alt="Client" className="w-12 h-12 rounded-full mr-3" />
-							<div>
-								<div className="font-bold">Samuel K.</div>
-								<div className="text-xs text-gray-500">Hawassa</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-	);
+  const testimonials = [
+    {
+      name: "Abel T.",
+      role: "Competitor",
+      location: "Addis Ababa",
+      text: "CoachHub changed my life! I lost 15kg and gained confidence specifically for my first show.",
+      stars: 5,
+    },
+    {
+      name: "Mimi G.",
+      role: "Lifestyle Client",
+      location: "Bahir Dar",
+      text: "The personalized plans and weekly check-ins kept me motivated. Highly recommend to anyone serious about change.",
+      stars: 5,
+    },
+    {
+      name: "Samuel K.",
+      role: "Athlete",
+      location: "Hawassa",
+      text: "I never thought online coaching could be this effective. The results speak for themselves.",
+      stars: 5,
+    },
+  ];
+
+  return (
+    <section className="bg-neutral-950 py-24 md:py-32 relative overflow-hidden">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-neutral-900 to-neutral-950 z-0 opacity-50" />
+      
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl md:text-5xl font-black text-white mb-6 uppercase tracking-tight">
+            Real <span className="text-yellow-500">Results</span>
+          </h2>
+          <p className="text-lg text-neutral-400">Whatever your goal, we have a track record of success.</p>
+        </motion.div>
+
+        <div className="grid md:grid-cols-3 gap-8">
+          {testimonials.map((t, idx) => (
+            <motion.div 
+              key={idx}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: idx * 0.2 }}
+              className="bg-neutral-900/50 backdrop-blur-sm p-8 rounded-xl border border-neutral-800 shadow-xl hover:shadow-2xl hover:border-yellow-500/30 transition-all duration-300"
+            >
+              <div className="flex gap-1 mb-6 text-yellow-500">
+                {[...Array(t.stars)].map((_, i) => (
+                  <Star key={i} size={18} fill="currentColor" strokeWidth={0} />
+                ))}
+              </div>
+              
+              <blockquote className="text-xl text-white font-medium mb-8 leading-relaxed">
+                "{t.text}"
+              </blockquote>
+
+              <div className="flex items-center">
+                <div className="w-12 h-12 bg-neutral-800 rounded-full flex items-center justify-center font-bold text-neutral-500 mr-4 border border-neutral-700">
+                   {t.name.charAt(0)}
+                </div>
+                <div>
+                  <div className="font-bold text-white tracking-wide">{t.name}</div>
+                  <div className="text-sm text-neutral-500 font-medium">{t.role} • {t.location}</div>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 }
