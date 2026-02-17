@@ -46,7 +46,7 @@ export default function Contact() {
             <div className="space-y-1.5 md:space-y-2">
               <label className="text-xs md:text-sm font-bold text-neutral-300 uppercase tracking-wide">Goals</label>
               <select className="w-full bg-neutral-900 border border-neutral-800 rounded-md px-4 py-3 text-sm md:text-base text-white focus:outline-none focus:border-red-600 focus:ring-1 focus:ring-red-600 transition-colors appearance-none">
-                <option value="" disabled selected>Select Your Goal</option>
+                <option value="" disabled>Select Your Goal</option>
                 <option value="fat_loss">Fat Loss</option>
                 <option value="muscle_gain">Muscle Gain</option>
                 <option value="competition_prep">Competition Prep</option>
