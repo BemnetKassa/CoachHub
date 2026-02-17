@@ -37,7 +37,7 @@ export default function LoginPage() {
         .from('users')
         .select('role')
         .eq('id', user.id)
-        .single()
+        .single() 
 
       if (profileError) {
         console.error('Error fetching user profile:', profileError)
