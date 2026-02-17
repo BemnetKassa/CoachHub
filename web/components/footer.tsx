@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 export default function Footer() {
   return (
     <footer className="bg-neutral-950 border-t border-neutral-900 py-12 md:py-16 text-neutral-400">
@@ -9,7 +11,7 @@ export default function Footer() {
                 COACH<span className="text-red-600">HUB</span>
              </div>
              <p className="text-sm">
-               Forging elite physiques through science, intensity, and unwavering commitment.
+               Forging elite physiques with Sofonias Nebiyu through science, intensity, and unwavering commitment.
              </p>
           </div>
 
@@ -17,17 +19,17 @@ export default function Footer() {
           <div>
             <h4 className="font-bold text-white mb-4 uppercase tracking-wider text-sm">Programs</h4>
             <ul className="space-y-2 text-sm">
-              <li><a href="#" className="hover:text-red-600 transition-colors">12-Week Transformation</a></li>
-              <li><a href="#" className="hover:text-red-600 transition-colors">Competition Prep</a></li>
-              <li><a href="#" className="hover:text-red-600 transition-colors">Lifestyle Coaching</a></li>
+              <li><Link href="/programs" className="hover:text-red-600 transition-colors">12-Week Transformation</Link></li>
+              <li><Link href="/programs" className="hover:text-red-600 transition-colors">Competition Prep</Link></li>
+              <li><Link href="/programs" className="hover:text-red-600 transition-colors">Lifestyle Coaching</Link></li>
             </ul>
           </div>
 
           {/* Links 2 */}
           <div>
-            <h4 className="font-bold text-white mb-4 uppercase tracking-wider text-sm">Company</h4>
+            <h4 className="font-bold text-white mb-4 uppercase tracking-wider text-sm">Explore</h4>
             <ul className="space-y-2 text-sm">
-              <li><a href="#" className="hover:text-white transition-colors">About</a></li>
+              <li><Link href="/about" className="hover:text-white transition-colors">About Sofonias</Link></li>
               <li><a href="#" className="hover:text-white transition-colors">Testimonials</a></li>
               <li><a href="#" className="hover:text-white transition-colors">Contact</a></li>
               <li><a href="#" className="hover:text-white transition-colors">Privacy Policy</a></li>

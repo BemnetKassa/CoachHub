@@ -9,14 +9,14 @@ export default function Testimony() {
       name: "Abel T.",
       role: "Competitor",
       location: "Addis Ababa",
-      text: "CoachHub changed my life! I lost 15kg and gained confidence specifically for my first show.",
+      text: "Sofonias changed my life! I lost 15kg and gained confidence specifically for my first show.",
       stars: 5,
     },
     {
       name: "Mimi G.",
       role: "Lifestyle Client",
       location: "Bahir Dar",
-      text: "The personalized plans and weekly check-ins kept me motivated. Highly recommend to anyone serious about change.",
+      text: "The personalized plans and weekly check-ins with Sofonias kept me motivated. Highly recommend.",
       stars: 5,
     },
     {
@@ -41,9 +41,9 @@ export default function Testimony() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-black text-white mb-6 uppercase tracking-tight">
-            Real <span className="text-yellow-500">Results</span>
+            Real <span className="text-red-600">Results</span>
           </h2>
-          <p className="text-lg text-neutral-400">Whatever your goal, we have a track record of success.</p>
+          <p className="text-lg text-neutral-400">Whatever your goal, I have a track record of success.</p>
         </motion.div>
 
         <div className="grid md:grid-cols-3 gap-8">

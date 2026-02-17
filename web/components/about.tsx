@@ -24,23 +24,37 @@ export default function About() {
     <div className="bg-neutral-950">
       {/* Hero Section */}
       <section className="relative py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto pt-32">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="text-center"
-        >
-          <span className="text-red-600 font-bold uppercase tracking-wider text-sm mb-4 block">
-            Who We Are
-          </span>
-          <h1 className="text-5xl md:text-7xl font-black text-white mb-6 uppercase italic tracking-tighter">
-            About <span className="text-red-600">CoachHub</span>
-          </h1>
-          <p className="text-xl text-neutral-400 max-w-3xl mx-auto leading-relaxed">
-            We are more than just a coaching platform. We are a movement dedicated to
-            transforming lives through science-based training and unyielding dedication.
-          </p>
-        </motion.div>
+        <div className="grid md:grid-cols-2 gap-12 items-center">
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <span className="text-red-600 font-bold uppercase tracking-wider text-sm mb-4 block">
+              Meet Your Coach
+            </span>
+            <h1 className="text-5xl md:text-7xl font-black text-white mb-6 uppercase italic tracking-tighter">
+              Sofonias <span className="text-red-600">Nebiyu</span>
+            </h1>
+            <p className="text-xl text-neutral-400 leading-relaxed mb-8">
+              I'm not just a trainer; I'm your partner in transformation. My mission is to help you break through barriers, build sustainable habits, and achieve the physique you've always dreamed of.
+            </p>
+            <Link href="/programs" className="inline-block bg-white text-black font-bold uppercase tracking-wide py-3 px-8 rounded hover:bg-neutral-200 transition-colors">
+              View Programs
+            </Link>
+          </motion.div>
+          
+          <motion.div
+             initial={{ opacity: 0, x: 50 }}
+             animate={{ opacity: 1, x: 0 }}
+             transition={{ duration: 0.5, delay: 0.2 }}
+             className="relative"
+          >
+            <div className="aspect-[3/4] rounded-2xl overflow-hidden grayscale hover:grayscale-0 transition-all duration-500 shadow-2xl shadow-red-900/20 border border-neutral-800">
+               <img src="/pictures/sofi2.png" alt="Sofonias Nebiyu" className="w-full h-full object-cover" />
+            </div>
+          </motion.div>
+        </div>
       </section>
 
       {/* Stats Section */}
@@ -48,10 +62,10 @@ export default function About() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
-              { label: 'Active Members', value: '10k+' },
-              { label: 'Pro Coaches', value: '50+' },
-              { label: 'Years Experience', value: '15+' },
-              { label: 'Success Rate', value: '98%' },
+              { label: 'Transformations', value: '100+' },
+              { label: 'Years Experience', value: '5+' },
+              { label: 'Certifications', value: '4' },
+              { label: 'Client Satisfaction', value: '100%' },
             ].map((stat, index) => (
               <motion.div
                 key={stat.label}
@@ -85,7 +99,7 @@ export default function About() {
               BUILT DIFFERENT
             </h2>
             <p className="max-w-2xl mx-auto text-lg text-neutral-400">
-              CoachHub isn't just a platform; it's a commitment to excellence. We combine science-based training with the raw intensity of bodybuilding to forge elite physiques.
+              This isn't just a program; it's a commitment to excellence. I combine science-based training with the raw intensity of bodybuilding to help you forge an elite physique.
             </p>
           </motion.div>
 
@@ -104,12 +118,12 @@ export default function About() {
               },
               {
                 title: "Elite Community",
-                desc: "Join a brotherhood of like-minded individuals pushing past their limits. Iron sharpens iron.",
+                desc: "Join a community of like-minded individuals pushing past their limits. Iron sharpens iron.",
                 icon: Users
               },
               {
                 title: "Proven Results",
-                desc: "Decades of combined experience and hundreds of successful transformations back our methodology.",
+                desc: "Years of experience and over 100 successful transformations back my methodology.",
                 icon: Trophy
               }
             ].map((feature, idx) => (
@@ -135,21 +149,19 @@ export default function About() {
               viewport={{ once: true }}
             >
               <span className="text-red-600 font-bold uppercase tracking-wider text-sm mb-2 block">
-                Our Story
+                My Journey
               </span>
               <h2 className="text-4xl font-black text-white mb-6 uppercase">
                 Forged in Iron
               </h2>
               <div className="space-y-6 text-neutral-400 text-lg leading-relaxed">
                 <p>
-                  CoachHub began with a simple observation: the fitness industry was broken.
-                  Generic plans, cookie-cutter advice, and zero accountability were the norm.
-                  We knew there had to be a better way.
+                  My fitness journey didn't start in a high-tech lab; it started with a desire to change.
+                  Like many of you, I struggled with generic advice and inconsistent results. I knew there had to be a better way.
                 </p>
                 <p>
-                  Founded by a team of elite athletes and data scientists, we set out to build
-                  a platform that bridges the gap between professional-grade coaching and
-                  accessible technology.
+                  Through years of study, trial, and relentless training, I developed a system that works.
+                  Now, I'm dedicated to sharing that knowledge and helping you bypass the mistakes I made properly.
                 </p>
               </div>
             </motion.div>
@@ -160,10 +172,7 @@ export default function About() {
               className="relative aspect-square rounded-2xl overflow-hidden bg-neutral-900 border-2 border-neutral-800"
             >
               <div className="absolute inset-0 bg-gradient-to-tr from-red-900/20 to-transparent z-10" />
-              <div className="w-full h-full flex flex-col items-center justify-center bg-neutral-900 text-neutral-700">
-                <Users size={64} className="mb-4 opacity-50" />
-                <span className="font-bold text-xl opacity-50">Team Photo</span>
-              </div>
+              <img src="/pictures/sofi3.png" alt="Sofonias Nebiyu" className="w-full h-full object-cover object-top" />
             </motion.div>
           </div>
         </div>
@@ -173,9 +182,9 @@ export default function About() {
       <section className="py-24 bg-neutral-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-black text-white mb-6 uppercase">Our Core Values</h2>
+            <h2 className="text-4xl font-black text-white mb-6 uppercase">My Core Values</h2>
             <p className="text-neutral-400 max-w-2xl mx-auto">
-              Principles that guide every rep, every set, and every decision we make.
+              Principles that guide every rep, every set, and every decision I make with my clients.
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
@@ -183,7 +192,7 @@ export default function About() {
               {
                 icon: Award,
                 title: 'Excellence',
-                desc: 'We define the standard. Good enough is never enough.',
+                desc: 'I define the standard. Good enough is never enough.',
               },
               {
                 icon: Zap,
