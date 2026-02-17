@@ -21,10 +21,20 @@ export default function PricingPage() {
         body: JSON.stringify({ priceId }),
       });
 
-      const { sessionId } = await response.json();
+      const data = await response.json();
+
+      if (!response.ok) {
+        if (response.status === 401) {
+          router.push('/login?redirect=/pricing');
+          return;
+        }
+        throw new Error(data.error || 'Something went wrong');
+      }
+
+      const { sessionId } = data;
       const stripe = await getStripe();
       if (stripe) {
-        stripe.redirectToCheckout({ sessionId });
+        await stripe.redirectToCheckout({ sessionId });
       }
     } catch (error) {
       console.error('Error:', error);

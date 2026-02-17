@@ -1,7 +1,7 @@
 'use client'
 
 import { createClient } from '@/lib/supabase/client'
-import { useRouter } from 'next/navigation'
+import { useRouter, useSearchParams } from 'next/navigation'
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Mail, Lock, Loader2, AlertCircle } from 'lucide-react'
@@ -13,6 +13,9 @@ export default function LoginPage() {
   const [error, setError] = useState<string | null>(null)
   const [loading, setLoading] = useState(false)
   const router = useRouter()
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const searchParams = useSearchParams()
+  const redirect = searchParams.get('redirect')
   const supabase = createClient()
 
   const handleLogin = async (e: React.FormEvent) => {
@@ -43,6 +46,11 @@ export default function LoginPage() {
         console.error('Error fetching user profile:', profileError)
         // Fallback to dashboard if profile fetch fails, or handle as error
         router.push('/dashboard')
+        return
+      }
+
+      if (redirect) {
+        router.push(redirect)
         return
       }
 
