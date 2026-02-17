@@ -39,7 +39,7 @@ export default function PricingPage() {
       period: '/month',
       description: 'Perfect for beginners starting their journey.',
       features: ['Basic workout plans', 'Progress tracking', 'Community access', 'Email support'],
-      priceId: 'price_1T1kF6EEWxkBu5RgGRlFmrk9', // Replace with actual stripe price ID
+      priceId: process.env.NEXT_PUBLIC_STRIPE_PRICE_ID_STARTER!,
       popular: false,
     },
     {
@@ -48,7 +48,7 @@ export default function PricingPage() {
       period: '/month',
       description: 'Serious gains for improved performance.',
       features: ['Advanced programming', 'Nutrition guidance', 'Form checks (2/mo)', 'Priority support'],
-      priceId: 'price_1T1kF6EEWxkBu5RgGRlFmrk9', // Replace with actual stripe price ID
+      priceId: process.env.NEXT_PUBLIC_STRIPE_PRICE_ID_PRO!,
       popular: true,
     },
     {
@@ -57,7 +57,7 @@ export default function PricingPage() {
       period: '/month',
       description: 'Maximum results with 1-on-1 coaching.',
       features: ['Custom roadmap', 'Weekly check-ins', 'Daily form checks', '24/7 Coach access'],
-      priceId: 'price_1T1kF6EEWxkBu5RgGRlFmrk9', // Replace with actual stripe price ID
+      priceId: process.env.NEXT_PUBLIC_STRIPE_PRICE_ID_ELITE!,
       popular: false,
     },
   ];
