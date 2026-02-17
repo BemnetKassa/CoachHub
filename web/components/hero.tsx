@@ -11,9 +11,9 @@ export default function Hero() {
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-r from-neutral-950 via-neutral-950/80 to-neutral-950/40 z-10" />
         <img
-          src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2070&auto=format&fit=crop"
-          alt="Bodybuilder training"
-          className="w-full h-full object-cover opacity-60"
+          src="/pictures/sofi1.png"
+          alt="Sofonias Nebiyu Training"
+          className="w-full h-full object-cover opacity-60 object-top"
         />
       </div>
 
@@ -24,16 +24,16 @@ export default function Hero() {
           transition={{ duration: 0.8 }}
         >
           <span className="text-red-600 font-bold tracking-widest text-sm md:text-base mb-4 block uppercase">
-            Elite Bodybuilding Coaching
+            Sofonias Nebiyu • Elite Performance Coach
           </span>
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-white leading-tight tracking-tighter mb-6">
-            FORGE YOUR <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-600">
-              LEGACY
+            UNLEASH YOUR <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-red-800">
+              TRUE POTENTIAL
             </span>
           </h1>
           <p className="max-w-xl text-lg md:text-xl text-neutral-400 mb-10 leading-relaxed">
-            Stop guessing. Start transforming. Join the elite coaching program designed to push your limits and sculpt your physique.
+            I don't just build bodies; I build mindsets. Join my elite coaching program and let's sculpt the best version of you together.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4">
