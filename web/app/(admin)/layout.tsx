@@ -49,6 +49,18 @@ export default async function AdminLayout({
             Students
           </Link>
           <Link
+            href="/admin/transformations"
+            className="flex items-center px-4 py-2 hover:bg-gray-700 rounded-md"
+          >
+            Transformations
+          </Link>
+          <Link
+            href="/admin/pricing"
+            className="flex items-center px-4 py-2 hover:bg-gray-700 rounded-md"
+          >
+            Pricing
+          </Link>
+          <Link
             href="/admin/workouts"
             className="flex items-center px-4 py-2 hover:bg-gray-700 rounded-md"
           >

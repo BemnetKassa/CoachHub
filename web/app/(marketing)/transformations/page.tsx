@@ -1,9 +1,16 @@
 import Transformations from '@/components/transformations';
+import { createClient } from '@/lib/supabase/server';
 
-export default function TransformationsPage() {
+export default async function TransformationsPage() {
+  const supabase = await createClient();
+  const { data: transformations } = await supabase
+    .from('transformations')
+    .select('*')
+    .order('created_at', { ascending: false });
+
   return (
     <div className="bg-neutral-950 min-h-screen">
-      <Transformations />
+      <Transformations initialData={transformations || []} />
     </div>
   );
 }

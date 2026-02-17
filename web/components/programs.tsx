@@ -11,7 +11,6 @@ export default function Programs() {
       title: '12-Week Transformation',
       description: 'The ultimate guide to transforming your body in 12 weeks. Designed for beginners and intermediates looking to build muscle and burn fat.',
       level: 'Intermediate',
-      price: '$99/month',
       features: [
         'Custom Workout Plan',
         'Personalized Nutrition Guide',
@@ -27,7 +26,6 @@ export default function Programs() {
       title: 'Muscle Gain Blueprint',
       description: 'Focus purely on hypertrophy. Scientifically backed volume and intensity progression to pack on lean mass.',
       level: 'Advanced',
-      price: '$129/month',
       features: [
         'Advanced Hypertrophy Splits',
         'Macronutrient Cycling',
@@ -43,7 +41,6 @@ export default function Programs() {
       title: 'Competition Prep',
       description: 'Strict, dialed-in coaching to get you stage-ready. Every rep, every gram of food, every detail accounted for.',
       level: 'Elite',
-      price: '$199/month',
       features: [
         'Daily Check-ins (Peak Week)',
         'Posing Practice Feedback',

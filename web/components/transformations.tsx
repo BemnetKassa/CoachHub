@@ -3,26 +3,36 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 
-const transformations = [
+interface Transformation {
+  id: string;
+  name: string;
+  achievement: string;
+  quote: string;
+  program: string;
+  image_before_url: string;
+  image_after_url: string;
+}
+
+const defaultTransformations = [
   {
-    before: 'https://images.unsplash.com/photo-1549476464-37392f717541?auto=format&fit=crop&q=80',
-    after: 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&q=80',
+    image_before_url: 'https://images.unsplash.com/photo-1549476464-37392f717541?auto=format&fit=crop&q=80',
+    image_after_url: 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&q=80',
     name: "Michael R.",
     achievement: "Lost 45lbs Fat, Gained 10lbs Muscle",
     quote: "The discipline required was insane, but the results speak for themselves. CoachHub guided me every step of the way.",
     program: "12-Week Transformation"
   },
   {
-    before: 'https://images.unsplash.com/photo-1616279967983-ec413476e824?auto=format&fit=crop&q=80',
-    after: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&q=80',
+    image_before_url: 'https://images.unsplash.com/photo-1616279967983-ec413476e824?auto=format&fit=crop&q=80',
+    image_after_url: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&q=80',
     name: "Sarah J.",
     achievement: "Competition Ready Physique",
     quote: "Prep is never easy, but having a coach who understands the science made all the difference. Placed 1st in my show.",
     program: "Competition Prep"
   },
   {
-    before: 'https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?auto=format&fit=crop&q=80',
-    after: 'https://images.unsplash.com/photo-1599058945522-28d584b6f0ff?auto=format&fit=crop&q=80',
+    image_before_url: 'https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?auto=format&fit=crop&q=80',
+    image_after_url: 'https://images.unsplash.com/photo-1599058945522-28d584b6f0ff?auto=format&fit=crop&q=80',
     name: "David K.",
     achievement: "Full Body Recomposition",
     quote: "I was stuck at a plateau for 3 years. 12 weeks with CoachHub and I'm in the best shape of my life.",
@@ -30,7 +40,9 @@ const transformations = [
   }
 ];
 
-export default function Transformations() {
+export default function Transformations({ initialData = [] }: { initialData?: any[] }) {
+  const data = (initialData && initialData.length > 0) ? initialData : defaultTransformations;
+
   return (
     <section className="bg-neutral-950 py-24 min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -51,7 +63,7 @@ export default function Transformations() {
         </motion.div>
 
         <div className="space-y-32">
-          {transformations.map((item, idx) => (
+          {data.map((item: any, idx: number) => (
             <motion.div 
               key={idx}
               initial={{ opacity: 0, y: 50 }}
@@ -71,7 +83,7 @@ export default function Transformations() {
                        <span className="text-neutral-500 text-xs font-bold uppercase tracking-wider block text-center">Before</span>
                        <div className="aspect-[3/4] overflow-hidden rounded-lg grayscale hover:grayscale-0 transition-all duration-500">
                           <img 
-                            src={item.before} 
+                            src={item.image_before_url} 
                             alt={`Before transformation of ${item.name}`} 
                             className="w-full h-full object-cover" 
                           />
@@ -81,7 +93,7 @@ export default function Transformations() {
                        <span className="text-red-600 text-xs font-bold uppercase tracking-wider block text-center">After</span>
                        <div className="aspect-[3/4] overflow-hidden rounded-lg border-2 border-red-600 shadow-2xl shadow-red-900/40">
                           <img 
-                            src={item.after} 
+                            src={item.image_after_url} 
                             alt={`After transformation of ${item.name}`} 
                             className="w-full h-full object-cover" 
                           />
