@@ -131,7 +131,7 @@ export default function AdminTransformations() {
           >
             <h2 className="text-2xl font-bold mb-6">{isEditing ? 'Edit' : 'New'} Transformation</h2>
             <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm font-medium mb-1">Name</label>
                   <input
@@ -171,7 +171,7 @@ export default function AdminTransformations() {
                 />
               </div>
 
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm font-medium mb-1">Before Image URL</label>
                   <input

@@ -23,23 +23,24 @@ export default function About() {
   return (
     <div className="bg-neutral-950">
       {/* Hero Section */}
-      <section className="relative py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto pt-32">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+      <section className="relative py-16 md:py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto pt-24 md:pt-32">
+        <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
+            className="text-center md:text-left"
           >
-            <span className="text-red-600 font-bold uppercase tracking-wider text-sm mb-4 block">
+            <span className="text-red-600 font-bold uppercase tracking-wider text-xs md:text-sm mb-2 md:mb-4 block">
               Meet Your Coach
             </span>
-            <h1 className="text-5xl md:text-7xl font-black text-white mb-6 uppercase italic tracking-tighter">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-white mb-4 md:mb-6 uppercase italic tracking-tighter">
               Sofonias <span className="text-red-600">Nebiyu</span>
             </h1>
-            <p className="text-xl text-neutral-400 leading-relaxed mb-8">
+            <p className="text-lg md:text-xl text-neutral-400 leading-relaxed mb-6 md:mb-8 max-w-2xl mx-auto md:mx-0">
               I'm not just a trainer; I'm your partner in transformation. My mission is to help you break through barriers, build sustainable habits, and achieve the physique you've always dreamed of.
             </p>
-            <Link href="/programs" className="inline-block bg-white text-black font-bold uppercase tracking-wide py-3 px-8 rounded hover:bg-neutral-200 transition-colors">
+            <Link href="/programs" className="inline-block bg-white text-black font-bold uppercase tracking-wide py-3 px-6 md:px-8 rounded hover:bg-neutral-200 transition-colors text-sm md:text-base">
               View Programs
             </Link>
           </motion.div>
@@ -48,9 +49,9 @@ export default function About() {
              initial={{ opacity: 0, x: 50 }}
              animate={{ opacity: 1, x: 0 }}
              transition={{ duration: 0.5, delay: 0.2 }}
-             className="relative"
+             className="relative mt-8 md:mt-0 px-4 md:px-0"
           >
-            <div className="aspect-[3/4] rounded-2xl overflow-hidden grayscale hover:grayscale-0 transition-all duration-500 shadow-2xl shadow-red-900/20 border border-neutral-800">
+            <div className="aspect-[3/4] rounded-2xl overflow-hidden grayscale hover:grayscale-0 transition-all duration-500 shadow-2xl shadow-red-900/20 border border-neutral-800 max-w-md mx-auto md:max-w-none">
                <img src="/pictures/sofi2.png" alt="Sofonias Nebiyu" className="w-full h-full object-cover" />
             </div>
           </motion.div>
@@ -58,9 +59,9 @@ export default function About() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-12 border-y border-neutral-800 bg-neutral-900/50">
+      <section className="py-8 md:py-12 border-y border-neutral-800 bg-neutral-900/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 text-center">
             {[
               { label: 'Transformations', value: '100+' },
               { label: 'Years Experience', value: '5+' },
@@ -73,10 +74,10 @@ export default function About() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="p-4"
+                className="p-2 md:p-4"
               >
-                <div className="text-4xl md:text-5xl font-black text-white mb-2">{stat.value}</div>
-                <div className="text-neutral-400 font-medium uppercase tracking-wider text-sm">{stat.label}</div>
+                <div className="text-3xl md:text-5xl font-black text-white mb-1 md:mb-2">{stat.value}</div>
+                <div className="text-neutral-400 font-medium uppercase tracking-wider text-xs md:text-sm">{stat.label}</div>
               </motion.div>
             ))}
           </div>
@@ -84,21 +85,21 @@ export default function About() {
       </section>
 
       {/* Philosophy Section (Original Content Integration) */}
-      <section className="bg-neutral-900 py-24 md:py-32">
+      <section className="bg-neutral-900 py-16 md:py-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-center mb-10 md:mb-16"
           >
             <span className="text-red-600 font-bold uppercase tracking-wider text-sm mb-2 block">
               The Philosophy
             </span>
-            <h2 className="text-4xl md:text-5xl font-black text-white mb-6">
+            <h2 className="text-3xl md:text-5xl font-black text-white mb-4 md:mb-6">
               BUILT DIFFERENT
             </h2>
-            <p className="max-w-2xl mx-auto text-lg text-neutral-400">
+            <p className="max-w-xl mx-auto text-base md:text-lg text-neutral-400">
               This isn't just a program; it's a commitment to excellence. I combine science-based training with the raw intensity of bodybuilding to help you forge an elite physique.
             </p>
           </motion.div>
@@ -108,7 +109,7 @@ export default function About() {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
-            className="grid md:grid-cols-3 gap-8"
+            className="grid md:grid-cols-3 gap-6 md:gap-8"
           >
             {[
               {
@@ -127,12 +128,12 @@ export default function About() {
                 icon: Trophy
               }
             ].map((feature, idx) => (
-              <motion.div key={feature.title} variants={item} className="bg-neutral-800 p-8 rounded-xl border border-neutral-700 hover:border-red-600 transition-colors group">
-                <div className="w-12 h-12 bg-red-600/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-red-600 transition-colors">
-                  <feature.icon className="w-6 h-6 text-red-600 group-hover:text-white transition-colors" />
+              <motion.div key={feature.title} variants={item} className="bg-neutral-800 p-6 md:p-8 rounded-xl border border-neutral-700 hover:border-red-600 transition-colors group">
+                <div className="w-10 h-10 md:w-12 md:h-12 bg-red-600/10 rounded-lg flex items-center justify-center mb-4 md:mb-6 group-hover:bg-red-600 transition-colors">
+                  <feature.icon className="w-5 h-5 md:w-6 md:h-6 text-red-600 group-hover:text-white transition-colors" />
                 </div>
-                <h3 className="text-xl font-bold text-white mb-3">{feature.title}</h3>
-                <p className="text-neutral-400 leading-relaxed">{feature.desc}</p>
+                <h3 className="text-lg md:text-xl font-bold text-white mb-2 md:mb-3">{feature.title}</h3>
+                <p className="text-sm md:text-base text-neutral-400 leading-relaxed">{feature.desc}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -140,21 +141,22 @@ export default function About() {
       </section>
 
       {/* Our Story Section */}
-      <section className="py-24 bg-neutral-950">
+      <section className="py-16 md:py-24 bg-neutral-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-16 items-center">
+          <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
+              className="text-center md:text-left"
             >
-              <span className="text-red-600 font-bold uppercase tracking-wider text-sm mb-2 block">
+              <span className="text-red-600 font-bold uppercase tracking-wider text-xs md:text-sm mb-2 block">
                 My Journey
               </span>
-              <h2 className="text-4xl font-black text-white mb-6 uppercase">
+              <h2 className="text-3xl md:text-4xl font-black text-white mb-4 md:mb-6 uppercase">
                 Forged in Iron
               </h2>
-              <div className="space-y-6 text-neutral-400 text-lg leading-relaxed">
+              <div className="space-y-4 md:space-y-6 text-neutral-400 text-base md:text-lg leading-relaxed">
                 <p>
                   My fitness journey didn't start in a high-tech lab; it started with a desire to change.
                   Like many of you, I struggled with generic advice and inconsistent results. I knew there had to be a better way.
@@ -169,11 +171,28 @@ export default function About() {
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="relative aspect-square rounded-2xl overflow-hidden bg-neutral-900 border-2 border-neutral-800"
+              className="relative aspect-square rounded-2xl overflow-hidden bg-neutral-900 border-2 border-neutral-800 max-w-sm mx-auto md:max-w-none w-full"
             >
               <div className="absolute inset-0 bg-gradient-to-tr from-red-900/20 to-transparent z-10" />
               <img src="/pictures/sofi3.png" alt="Sofonias Nebiyu" className="w-full h-full object-cover object-top" />
             </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Values Section */}
+      <section className="py-16 md:py-24 bg-neutral-900">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10 md:mb-16">
+            <h2 className="text-3xl md:text-4xl font-black text-white mb-4 md:mb-6 uppercase">My Core Values</h2>
+            <p className="text-neutral-400 max-w-xl mx-auto text-sm md:text-base">
+              Principles that guide every rep, every set, and every decision I make with my clients.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6 md:gap-8">
+              <div className="absolute inset-0 bg-gradient-to-tr from-red-900/20 to-transparent z-10" />
+              <img src="/pictures/sofi3.png" alt="Sofonias Nebiyu" className="w-full h-full object-cover object-top" />
+            
           </div>
         </div>
       </section>

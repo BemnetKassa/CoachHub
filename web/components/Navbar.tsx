@@ -40,14 +40,10 @@ export function Navbar() {
             </div>
           </div>
 
-          <div className="md:flex hidden">
-             {/* Desktop menu already rendered above */}
-          </div>
-
-          <div className="-mr-2 flex md:hidden">
+          <div className="flex md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+              className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-neutral-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-red-600 transition-colors"
             >
               <span className="sr-only">Open main menu</span>
               {isOpen ? (
@@ -65,27 +61,29 @@ export function Navbar() {
         <motion.div 
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: 'auto' }}
-          className="md:hidden bg-neutral-900 border-b border-neutral-800"
+          exit={{ opacity: 0, height: 0 }}
+          className="md:hidden bg-neutral-950 border-t border-neutral-800 overflow-hidden"
         >
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-             <MobileNavLink href="/programs" onClick={() => setIsOpen(false)}>PROGRAMS</MobileNavLink>
-             <MobileNavLink href="/transformations" onClick={() => setIsOpen(false)}>TRANSFORMATIONS</MobileNavLink>
-             <MobileNavLink href="/about" onClick={() => setIsOpen(false)}>ABOUT</MobileNavLink>
-             <MobileNavLink href="/pricing" onClick={() => setIsOpen(false)}>PRICING</MobileNavLink>
-          </div>
-          <div className="pt-4 pb-4 border-t border-gray-700">
-             <div className="flex items-center px-5 space-y-3 flex-col">
+          <div className="px-4 pt-4 pb-6 space-y-2">
+             <div className="space-y-1">
+                <MobileNavLink href="/programs" onClick={() => setIsOpen(false)}>PROGRAMS</MobileNavLink>
+                <MobileNavLink href="/transformations" onClick={() => setIsOpen(false)}>TRANSFORMATIONS</MobileNavLink>
+                <MobileNavLink href="/about" onClick={() => setIsOpen(false)}>ABOUT</MobileNavLink>
+                <MobileNavLink href="/pricing" onClick={() => setIsOpen(false)}>PRICING</MobileNavLink>
+             </div>
+             
+             <div className="pt-6 mt-6 border-t border-neutral-900 flex flex-col gap-3">
                 <Link 
                   href="/login" 
-                  className="block w-full text-center text-neutral-300 hover:text-white py-2 font-semibold"
                   onClick={() => setIsOpen(false)}
+                  className="w-full text-center text-neutral-300 hover:text-white py-3 font-semibold border border-neutral-800 rounded-lg hover:border-neutral-700 transition-all"
                 >
                   LOG IN
                 </Link>
                 <Link 
                   href="/register" 
-                  className="block w-full text-center bg-red-600 text-white py-3 rounded-md font-bold hover:bg-red-700 shadow-lg"
                   onClick={() => setIsOpen(false)}
+                  className="w-full text-center bg-red-600 text-white py-3 rounded-lg font-bold hover:bg-red-700 shadow-lg shadow-red-900/20 tracking-wide transition-all"
                 >
                   JOIN NOW
                 </Link>

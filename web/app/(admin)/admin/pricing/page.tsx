@@ -135,7 +135,7 @@ export default function AdminPricing() {
           >
             <h2 className="text-2xl font-bold mb-6">{isEditing ? 'Edit' : 'New'} Plan</h2>
             <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm font-medium mb-1">Plan Name</label>
                   <input
@@ -155,7 +155,7 @@ export default function AdminPricing() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm font-medium mb-1">Price (e.g. $29)</label>
                   <input
