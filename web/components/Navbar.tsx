@@ -19,10 +19,11 @@ export function Navbar() {
           </div>
           
           <div className="hidden md:flex items-center space-x-8">
-            <NavLink href="/programs">PROGRAMS</NavLink>
+            
             <NavLink href="/transformations">TRANSFORMATIONS</NavLink>
             <NavLink href="/about">ABOUT</NavLink>
-            <NavLink href="/pricing">PRICING</NavLink>
+            <NavLink href="/programs">PROGRAMS</NavLink>
+            
             
             <div className="flex items-center space-x-4 ml-4">
               <Link 
@@ -66,10 +67,9 @@ export function Navbar() {
         >
           <div className="px-4 pt-4 pb-6 space-y-2">
              <div className="space-y-1">
-                <MobileNavLink href="/programs" onClick={() => setIsOpen(false)}>PROGRAMS</MobileNavLink>
                 <MobileNavLink href="/transformations" onClick={() => setIsOpen(false)}>TRANSFORMATIONS</MobileNavLink>
                 <MobileNavLink href="/about" onClick={() => setIsOpen(false)}>ABOUT</MobileNavLink>
-                <MobileNavLink href="/pricing" onClick={() => setIsOpen(false)}>PRICING</MobileNavLink>
+                <MobileNavLink href="/programs" onClick={() => setIsOpen(false)}>PRICING</MobileNavLink>
              </div>
              
              <div className="pt-6 mt-6 border-t border-neutral-900 flex flex-col gap-3">

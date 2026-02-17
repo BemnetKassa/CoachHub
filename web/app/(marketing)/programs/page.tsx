@@ -1,9 +1,14 @@
-import Programs from '@/components/programs';
+import PricingPlans from '@/components/pricing-plans';
+import { createClient } from '@/lib/supabase/server';
 
-export default function ProgramsPage() {
+export default async function PricingPage() {
+  const supabase = await createClient();
+  const { data: plans } = await supabase
+    .from('pricing_plans')
+    .select('*')
+    .order('order_index', { ascending: true }); // Ensure ordering if column exists, otherwise fallback to created_at
+
   return (
-    <div className="bg-neutral-950 min-h-screen">
-      <Programs />
-    </div>
+    <PricingPlans initialPlans={plans || []} />
   );
 }
