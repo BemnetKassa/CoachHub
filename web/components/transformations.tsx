@@ -19,7 +19,7 @@ const defaultTransformations = [
     image_after_url: 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&q=80',
     name: "Michael R.",
     achievement: "Lost 45lbs Fat, Gained 10lbs Muscle",
-    quote: "The discipline required was insane, but the results speak for themselves. CoachHub guided me every step of the way.",
+    quote: "The discipline required was insane, but the results speak for themselves. Sofonias guided me every step of the way.",
     program: "12-Week Transformation"
   },
   {
@@ -35,7 +35,7 @@ const defaultTransformations = [
     image_after_url: 'https://images.unsplash.com/photo-1599058945522-28d584b6f0ff?auto=format&fit=crop&q=80',
     name: "David K.",
     achievement: "Full Body Recomposition",
-    quote: "I was stuck at a plateau for 3 years. 12 weeks with CoachHub and I'm in the best shape of my life.",
+    quote: "I was stuck at a plateau for 3 years. 12 weeks with Sofonias and I'm in the best shape of my life.",
     program: "Muscle Gain Blueprint"
   }
 ];

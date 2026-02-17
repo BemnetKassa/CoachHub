@@ -20,7 +20,7 @@ export default function Contact() {
             READY TO <span className="text-red-600">START?</span>
           </h2>
           <p className="text-neutral-400 text-center mb-10 max-w-xl mx-auto">
-            Fill out the form below to get in touch about coaching. We'll get back to you within 24 hours.
+            Fill out the form below to get in touch about coaching. I'll get back to you within 24 hours.
           </p>
 
           <form className="space-y-6">
