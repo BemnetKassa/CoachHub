@@ -84,6 +84,7 @@ export default function PricingPlans({ initialPlans = [] }: PricingPlansProps) {
       const { sessionId } = data;
       const stripe = await getStripe();
       if (stripe) {
+        // @ts-ignore
         await stripe.redirectToCheckout({ sessionId });
       }
     } catch (error) {

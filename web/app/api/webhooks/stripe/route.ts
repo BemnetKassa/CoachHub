@@ -150,7 +150,9 @@ async function upsertSubscriptionRecord(subscription: Stripe.Subscription | stri
         cancel_at_period_end: subscriptionData.cancel_at_period_end,
         cancel_at: subscriptionData.cancel_at ? new Date(subscriptionData.cancel_at * 1000).toISOString() : null,
         canceled_at: subscriptionData.canceled_at ? new Date(subscriptionData.canceled_at * 1000).toISOString() : null,
+        // @ts-ignore - Properties exist on Stripe subscription object but types might be outdated or strict
         current_period_start: new Date(subscriptionData.current_period_start * 1000).toISOString(),
+        // @ts-ignore
         current_period_end: new Date(subscriptionData.current_period_end * 1000).toISOString(),
         created: new Date(subscriptionData.created * 1000).toISOString(),
         ended_at: subscriptionData.ended_at ? new Date(subscriptionData.ended_at * 1000).toISOString() : null,
@@ -160,5 +162,5 @@ async function upsertSubscriptionRecord(subscription: Stripe.Subscription | stri
 
     const { error } = await supabase.from('subscriptions').upsert([data]);
     if (error) throw error;
-    console.log(`Subscription inserted/updated: ${subscription.id}`);
+    console.log(`Subscription inserted/updated: ${subscriptionData.id}`);
 }

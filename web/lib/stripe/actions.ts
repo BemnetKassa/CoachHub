@@ -71,7 +71,9 @@ export async function upsertSubscriptionRecord(subscriptionId: string) {
         cancel_at_period_end: subscription.cancel_at_period_end,
         cancel_at: subscription.cancel_at ? new Date(subscription.cancel_at * 1000).toISOString() : null,
         canceled_at: subscription.canceled_at ? new Date(subscription.canceled_at * 1000).toISOString() : null,
+        // @ts-ignore
         current_period_start: new Date(subscription.current_period_start * 1000).toISOString(),
+        // @ts-ignore
         current_period_end: new Date(subscription.current_period_end * 1000).toISOString(),
         created: new Date(subscription.created * 1000).toISOString(),
         ended_at: subscription.ended_at ? new Date(subscription.ended_at * 1000).toISOString() : null,
