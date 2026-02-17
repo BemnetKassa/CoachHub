@@ -22,7 +22,6 @@ export function Navbar() {
             <NavLink href="/programs">PROGRAMS</NavLink>
             <NavLink href="/transformations">TRANSFORMATIONS</NavLink>
             <NavLink href="/about">ABOUT</NavLink>
-            <NavLink href="/contact">CONTACT</NavLink>
             <NavLink href="/pricing">PRICING</NavLink>
             
             <div className="flex items-center space-x-4 ml-4">
@@ -72,6 +71,7 @@ export function Navbar() {
              <MobileNavLink href="/programs" onClick={() => setIsOpen(false)}>PROGRAMS</MobileNavLink>
              <MobileNavLink href="/transformations" onClick={() => setIsOpen(false)}>TRANSFORMATIONS</MobileNavLink>
              <MobileNavLink href="/about" onClick={() => setIsOpen(false)}>ABOUT</MobileNavLink>
+             <MobileNavLink href="/pricing" onClick={() => setIsOpen(false)}>PRICING</MobileNavLink>
           </div>
           <div className="pt-4 pb-4 border-t border-gray-700">
              <div className="flex items-center px-5 space-y-3 flex-col">
