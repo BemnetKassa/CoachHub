@@ -94,7 +94,7 @@ export default function Programs() {
               )}
               
               <div className="h-40 md:h-48 overflow-hidden relative shrink-0">
-                <div className="absolute inset-0 bg-gradient-to-t from-neutral-900 to-transparent z-10" />
+                <div className="absolute inset-0 bg-linear-to-t from-neutral-900 to-transparent z-10" />
                 <img 
                   src={program.image} 
                   alt={program.title} 
@@ -102,7 +102,7 @@ export default function Programs() {
                 />
               </div>
 
-              <div className="p-6 md:p-8 flex flex-col flex-grow">
+              <div className="p-6 md:p-8 flex flex-col grow">
                 <div className="flex justify-between items-start mb-3 md:mb-4">
                   <div>
                     <h3 className="text-lg md:text-xl font-bold text-white mb-1">{program.title}</h3>
@@ -123,11 +123,11 @@ export default function Programs() {
                    <p className="text-[10px] md:text-xs text-neutral-500 mt-1">Billed monthly. Cancel anytime.</p>
                 </div>
 
-                <div className="flex-grow">
+                <div className="grow">
                   <ul className="space-y-2 md:space-y-3 mb-6 md:mb-8">
                     {program.features.map((feature, i) => (
                       <li key={i} className="flex items-start text-xs md:text-sm text-neutral-300">
-                        <Check className="w-4 h-4 md:w-5 md:h-5 text-red-600 mr-2 md:mr-3 flex-shrink-0" />
+                        <Check className="w-4 h-4 md:w-5 md:h-5 text-red-600 mr-2 md:mr-3 shrink-0" />
                         {feature}
                       </li>
                     ))}

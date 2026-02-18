@@ -87,7 +87,7 @@ export default function BrowseProgramsClient({
 
             <div className="p-6">
               <h3 className="text-xl font-bold text-gray-900 mb-2">{program.title}</h3>
-              <p className="text-gray-600 text-sm mb-4 line-clamp-2 min-h-[40px]">{program.description || "No description."}</p>
+              <p className="text-gray-600 text-sm mb-4 line-clamp-2 min-h-10">{program.description || "No description."}</p>
 
               <div className="flex items-center gap-4 mb-6 text-sm text-gray-500">
                 <div className="flex items-center">

@@ -132,7 +132,7 @@ export default function PricingPlans({ initialPlans = [] }: PricingPlansProps) {
               <ul className="space-y-3 md:space-y-4 mb-6 md:mb-8">
                 {plan.features.map((feature: string) => (
                   <li key={feature} className="flex items-start text-xs md:text-sm text-neutral-300">
-                    <Check className="h-4 w-4 md:h-5 md:w-5 text-red-500 mr-2 md:mr-3 flex-shrink-0 mt-0.5" />
+                    <Check className="h-4 w-4 md:h-5 md:w-5 text-red-500 mr-2 md:mr-3 shrink-0 mt-0.5" />
                     <span>{feature}</span>
                   </li>
                 ))}
