@@ -181,23 +181,6 @@ export default function About() {
       </section>
 
       {/* Values Section */}
-      <section className="py-16 md:py-24 bg-neutral-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10 md:mb-16">
-            <h2 className="text-3xl md:text-4xl font-black text-white mb-4 md:mb-6 uppercase">My Core Values</h2>
-            <p className="text-neutral-400 max-w-xl mx-auto text-sm md:text-base">
-              Principles that guide every rep, every set, and every decision I make with my clients.
-            </p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-6 md:gap-8">
-              <div className="absolute inset-0 bg-gradient-to-tr from-red-900/20 to-transparent z-10" />
-              <img src="/pictures/sofi3.png" alt="Sofonias Nebiyu" className="w-full h-full object-cover object-top" />
-            
-          </div>
-        </div>
-      </section>
-
-      {/* Values Section */}
       <section className="py-24 bg-neutral-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
