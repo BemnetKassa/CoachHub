@@ -2,18 +2,17 @@
 
 import { createClient } from '@/lib/supabase/client'
 import { useRouter, useSearchParams } from 'next/navigation'
-import { useState } from 'react'
+import { useState, Suspense } from 'react'
 import { motion } from 'framer-motion'
 import { Mail, Lock, Loader2, AlertCircle } from 'lucide-react'
 import Link from 'next/link'
 
-export default function LoginPage() {
+function LoginForm() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState<string | null>(null)
   const [loading, setLoading] = useState(false)
   const router = useRouter()
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   const searchParams = useSearchParams()
   const redirect = searchParams.get('redirect')
   const supabase = createClient()
@@ -35,7 +34,6 @@ export default function LoginPage() {
     }
 
     try {
-      // Check user role
       const { data: profile, error: profileError } = await supabase
         .from('users')
         .select('role')
@@ -44,7 +42,6 @@ export default function LoginPage() {
 
       if (profileError) {
         console.error('Error fetching user profile:', profileError)
-        // Fallback to dashboard if profile fetch fails, or handle as error
         router.push('/dashboard')
         return
       }
@@ -177,5 +174,17 @@ export default function LoginPage() {
         </div>
       </form>
     </motion.div>
+  )
+}
+
+export default function LoginPage() {
+  return (
+    <Suspense fallback={
+      <div className="flex justify-center items-center p-8">
+        <Loader2 className="w-8 h-8 animate-spin text-indigo-600" />
+      </div>
+    }>
+      <LoginForm />
+    </Suspense>
   )
 }
