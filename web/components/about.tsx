@@ -179,6 +179,7 @@ export default function About() {
           </div>
         </div>
       </section>
+      
 
       {/* Values Section */}
       <section className="py-24 bg-neutral-900">
