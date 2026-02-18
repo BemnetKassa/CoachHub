@@ -190,7 +190,7 @@ export default function StudentProgressClient({
         <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
            <h3 className="text-lg font-bold text-gray-900 mb-6">Weight Trend</h3>
            {chartData.length > 1 ? (
-             <div className="h-[300px] w-full">
+             <div className="h-75 w-full">
                <ResponsiveContainer width="100%" height="100%">
                  <LineChart data={chartData} margin={{ top: 5, right: 20, bottom: 5, left: 0 }}>
                    <CartesianGrid stroke="#f0f0f0" strokeDasharray="3 3" vertical={false} />
@@ -224,7 +224,7 @@ export default function StudentProgressClient({
                </ResponsiveContainer>
              </div>
            ) : (
-             <div className="h-[300px] flex items-center justify-center text-gray-400 bg-gray-50 rounded-lg border border-dashed border-gray-200">
+             <div className="h-75 flex items-center justify-center text-gray-400 bg-gray-50 rounded-lg border border-dashed border-gray-200">
                Need at least 2 entries to show trend
              </div>
            )}
@@ -252,7 +252,7 @@ export default function StudentProgressClient({
                          )}
                       </div>
                       {log.notes && (
-                        <p className="text-sm text-gray-500 mt-0.5 max-w-[200px] sm:max-w-md truncate">{log.notes}</p>
+                        <p className="text-sm text-gray-500 mt-0.5 max-w-50 sm:max-w-md truncate">{log.notes}</p>
                       )}
                     </div>
                   </div>
