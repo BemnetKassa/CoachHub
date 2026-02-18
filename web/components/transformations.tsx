@@ -40,11 +40,24 @@ const defaultTransformations = [
   }
 ];
 
-export default function Transformations({ initialData = [] }: { initialData?: any[] }) {
-  const data = (initialData && initialData.length > 0) ? initialData : defaultTransformations;
+export default function Transformations({ initialData }: { initialData?: any[] }) {
+  // If initialData is explicitly passed (even empty), use it. Otherwise use defaults.
+  // However, for better UX in dev, usually we want defaults if truly nothing is there.
+  // But for an admin app, empty array means empty list.
+  // Let's check if initialData is provided.
+  const hasExternalData = initialData !== undefined;
+  const data = hasExternalData && initialData.length > 0 ? initialData : (hasExternalData ? [] : defaultTransformations);
 
-  return (
-    <section className="bg-neutral-950 py-16 md:py-24 min-h-screen">
+  if (hasExternalData && initialData.length === 0) {
+    return (
+       <section className="bg-neutral-950 py-16 md:py-24 min-h-screen">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-400">
+             <h1 className="text-3xl font-bold text-white mb-4">Transformations</h1>
+             <p>No transformations added yet. Check back soon!</p>
+          </div>
+       </section>
+    );
+  }
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}

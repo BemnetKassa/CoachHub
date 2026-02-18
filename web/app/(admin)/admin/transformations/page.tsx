@@ -1,103 +1,17 @@
-'use client';
+import { createClient } from '@/lib/supabase/server';
+import AdminTransformationsClient from './client';
 
-import { createClient } from '@/lib/supabase/client';
-import { motion } from 'framer-motion';
-import { Edit, Plus, Trash2 } from 'lucide-react';
-import { useEffect, useState } from 'react';
+export const dynamic = 'force-dynamic';
 
-interface Transformation {
-  id: string;
-  name: string;
-  achievement: string;
-  quote: string;
-  program: string;
-  image_before_url: string;
-  image_after_url: string;
+export default async function AdminTransformationsPage() {
+  const supabase = await createClient();
+  const { data: transformations } = await supabase
+    .from('transformations')
+    .select('*')
+    .order('created_at', { ascending: false });
+
+  return <AdminTransformationsClient initialData={transformations || []} />;
 }
-
-export default function AdminTransformations() {
-  const [transformations, setTransformations] = useState<Transformation[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [isEditing, setIsEditing] = useState<Transformation | null>(null);
-  const [formData, setFormData] = useState<Partial<Transformation>>({});
-  const [showModal, setShowModal] = useState(false);
-  const supabase = createClient();
-
-  useEffect(() => {
-    fetchTransformations();
-  }, []);
-
-  async function fetchTransformations() {
-    setLoading(true);
-    const { data, error } = await supabase
-      .from('transformations')
-      .select('*')
-      .order('created_at', { ascending: false });
-
-    if (error) console.error('Error fetching transformations:', error);
-    else setTransformations(data || []);
-    setLoading(false);
-  }
-
-  async function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    if (isEditing) {
-      const { error } = await supabase
-        .from('transformations')
-        .update(formData)
-        .eq('id', isEditing.id);
-      if (error) alert('Error updating: ' + error.message);
-    } else {
-      const { error } = await supabase
-        .from('transformations')
-        .insert([formData]);
-      if (error) alert('Error creating: ' + error.message);
-    }
-    setShowModal(false);
-    setIsEditing(null);
-    setFormData({});
-    fetchTransformations();
-  }
-
-  async function handleDelete(id: string) {
-    if (!confirm('Are you sure you want to delete this transformation?')) return;
-    const { error } = await supabase.from('transformations').delete().eq('id', id);
-    if (error) alert('Error deleting: ' + error.message);
-    else fetchTransformations();
-  }
-
-  function openEdit(item: Transformation) {
-    setFormData(item);
-    setIsEditing(item);
-    setShowModal(true);
-  }
-
-  function openCreate() {
-    setFormData({});
-    setIsEditing(null);
-    setShowModal(true);
-  }
-
-  if (loading) return <div className="p-8 text-center">Loading transformations...</div>;
-
-  return (
-    <div className="p-6">
-      <div className="flex justify-between items-center mb-8">
-        <h1 className="text-3xl font-bold">Transformations</h1>
-        <button
-          onClick={openCreate}
-          className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg flex items-center gap-2"
-        >
-          <Plus size={20} /> Add New
-        </button>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {transformations.map((item) => (
-          <div key={item.id} className="bg-white rounded-xl shadow-md overflow-hidden border border-gray-100">
-            <div className="grid grid-cols-2 h-48">
-              <img src={item.image_before_url} className="w-full h-full object-cover" alt="Before" />
-              <img src={item.image_after_url} className="w-full h-full object-cover" alt="After" />
             </div>
             <div className="p-4">
               <h3 className="font-bold text-lg mb-1">{item.name}</h3>
