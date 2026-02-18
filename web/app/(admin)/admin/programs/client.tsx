@@ -113,9 +113,9 @@ export default function AdminProgramsClient({ initialPlans }: { initialPlans: Pr
       if (updatedPlans) setPlans(updatedPlans as PricingPlan[]);
       
       handleCloseModal();
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error saving plan:', error);
-      alert('Failed to save plan. Please try again.');
+      alert(`Failed to save plan: ${error.message || JSON.stringify(error)}`);
     } finally {
       setIsLoading(false);
     }

@@ -92,9 +92,9 @@ export default function AdminTransformationsClient({ initialData }: { initialDat
       if (updatedData) setTransformations(updatedData as Transformation[]);
       
       handleCloseModal();
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error saving transformation:', error);
-      alert('Failed to save transformation. Please try again.');
+      alert(`Failed to save transformation: ${error.message || JSON.stringify(error)}`);
     } finally {
       setIsLoading(false);
     }

@@ -58,6 +58,9 @@ export default function Transformations({ initialData }: { initialData?: any[] }
        </section>
     );
   }
+
+  return (
+    <section className="bg-neutral-950 py-16 md:py-24 min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
