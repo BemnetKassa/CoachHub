@@ -34,6 +34,7 @@ function LoginForm() {
     }
 
     try {
+      // Debugging: Check what role we get back
       const { data: profile, error: profileError } = await supabase
         .from('users')
         .select('role')
@@ -41,20 +42,26 @@ function LoginForm() {
         .single() 
 
       if (profileError) {
-        console.error('Error fetching user profile:', profileError)
+        console.error('Error fetching user profile:', profileError.message, profileError.details, profileError.hint)
+        // If error, still try to go to dashboard
+
         router.push('/dashboard')
         return
       }
 
-      if (redirect) {
-        router.push(redirect)
-        return
-      }
+      console.log('User profile loaded:', profile); // Debug log
 
       if (profile?.role === 'admin') {
+        console.log('Redirecting to Admin Dashboard...');
+        router.refresh(); // Ensure strict role checks on server re-run
         router.push('/admin')
       } else {
-        router.push('/dashboard')
+        console.log('Redirecting to Student Dashboard...');
+        if (redirect) {
+            router.push(redirect)
+        } else {
+            router.push('/dashboard')
+        }
       }
     } catch (err) {
       console.error('Unexpected error during login redirect:', err)
