@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { createClient } from "@/lib/supabase/client";
 import { useRouter } from "next/navigation";
-import { Plus, Edit2, Trash2, X, Loader2, Dumbbell, Clock, Users, DollarSign } from "lucide-react";
+import { Plus, Edit2, Trash2, X, Loader2, Dumbbell, Clock, Users, DollarSign, Calendar } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 
@@ -145,6 +145,13 @@ export default function AdminProgramsClient({
                 </div>
               )}
               <div className="absolute top-2 right-2 flex gap-2">
+                <button
+                  onClick={() => router.push(`/admin/programs/${program.id}`)}
+                  className="p-2 bg-white/90 rounded-full text-gray-700 hover:text-green-600 shadow-sm transition-colors"
+                  title="Manage Schedule"
+                >
+                  <Calendar className="w-4 h-4" />
+                </button>
                 <button
                   onClick={() => handleOpenModal(program)}
                   className="p-2 bg-white/90 rounded-full text-gray-700 hover:text-blue-600 shadow-sm transition-colors"
