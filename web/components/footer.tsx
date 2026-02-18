@@ -30,9 +30,9 @@ export default function Footer() {
             <h4 className="font-bold text-white mb-4 uppercase tracking-wider text-xs md:text-sm">Explore</h4>
             <ul className="space-y-2 text-sm">
               <li><Link href="/about" className="hover:text-white transition-colors">About Sofonias</Link></li>
-              <li><a href="#" className="hover:text-white transition-colors">Testimonials</a></li>
+              <li><Link href="/testmonials" className="hover:text-white transition-colors">Testimonials</Link></li>
               <li><Link href="/contact" className="hover:text-white transition-colors">Contact</Link></li>
-              <li><a href="#" className="hover:text-white transition-colors">Privacy Policy</a></li>
+              <li><Link href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link></li>
             </ul>
           </div>
 
