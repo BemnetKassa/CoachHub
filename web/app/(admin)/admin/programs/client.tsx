@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { createClient } from '@/lib/supabase/client';
 import { useRouter } from 'next/navigation';
-import { Plus, Edit2, Trash2, X, Check, Loader2 } from 'lucide-react';
+import { Plus, Edit2, Trash2, X, Loader2 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 type PricingPlan = {
@@ -335,7 +335,7 @@ export default function AdminProgramsClient({ initialPlans }: { initialPlans: Pr
                     onChange={(e) => setFormData({...formData, popular: e.target.checked})}
                     className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
                   />
-                  <label htmlFor="popular" className="text-sm font-medium text-gray-700">Tag as "Most Popular"</label>
+                  <label htmlFor="popular" className="text-sm font-medium text-gray-700">Tag as &quot;Most Popular&quot;</label>
                 </div>
 
                 <div className="pt-4 border-t flex justify-end gap-3">

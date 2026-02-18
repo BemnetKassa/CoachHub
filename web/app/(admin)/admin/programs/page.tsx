@@ -3,10 +3,8 @@ import AdminProgramsClient from './client';
 
 export const dynamic = 'force-dynamic';
 
-export default async function ProgramsPage({
-  searchParams,
-}: {
-  searchParams: Promise<{ [key: string]: string | string[] | undefined }>
+export default async function ProgramsPage({}: {
+  searchParams?: Promise<{ [key: string]: string | string[] | undefined }>
 }) {
   const supabase = await createClient();
   const { data: plans } = await supabase
