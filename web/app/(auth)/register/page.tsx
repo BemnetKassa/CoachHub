@@ -40,25 +40,20 @@ export default function RegisterPage() {
     }
 
     // 2. Create user record in 'users' table
-    // Note: Usually handled by a Supabase Trigger on auth.users insert.
-    // If you don't have a trigger, we must insert manually here.
-    // Assuming manual insert for safety, but check your DB logic.
+    // Since we have a trigger that automatically creates the user record on signup,
+    // we don't need to manually insert. However, we might want to update the 'name'
+    // if it wasn't captured correctly by the trigger (though raw_user_meta_data usually handles it).
+    
+    // Let's just update the name to be sure, which is safe to do via RLS.
     const { error: dbError } = await supabase
       .from('users')
-      .insert([
-        {
-          id: user.id,
-          name,
-          email,
-          role: 'student', // FORCE role to student
-        },
-      ])
+      .update({ name })
+      .eq('id', user.id)
 
     if (dbError) {
-      console.error('Error creating user profile:', dbError)
-      setError('Account created, but profile setup failed. Please contact support.')
-      setLoading(false)
-      return
+      // If the user record doesn't exist yet (race condition with trigger), we might need to retry or ignore.
+      console.warn('Could not update user profile name immediately:', dbError)
+      // We don't block registration on this, as the account is created.
     }
 
     // Success! Redirect

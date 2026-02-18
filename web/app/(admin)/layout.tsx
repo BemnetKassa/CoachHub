@@ -1,6 +1,7 @@
 import { createClient } from "@/lib/supabase/server";
 import { redirect } from "next/navigation";
 import Link from "next/link";
+import { LogoutButton } from "@/components/admin/logout-button";
 
 export default async function AdminLayout({
   children,
@@ -16,9 +17,16 @@ export default async function AdminLayout({
     redirect("/login");
   }
 
-  // TODO: Check if user is admin. For now, we assume authenticated users are fine, but in reality you'd verify role here.
-  // const { data: profile } = await supabase.from('users').select('role').eq('id', user.id).single();
-  // if (profile?.role !== 'admin') redirect('/dashboard');
+  // Check if user is admin
+  const { data: profile } = await supabase
+    .from("users")
+    .select("role")
+    .eq("id", user.id)
+    .single();
+
+  if (profile?.role !== "admin") {
+    redirect("/"); // Redirect non-admins to home page instead of dashboard to avoid loop
+  }
 
   return (
     <div className="min-h-screen bg-gray-100 flex">
@@ -26,7 +34,7 @@ export default async function AdminLayout({
       <aside className="w-64 bg-gray-800 text-white hidden md:flex flex-col">
         <div className="h-16 flex items-center justify-center border-b border-gray-700">
           <Link href="/admin" className="text-xl font-bold">
-            CoachHub User
+            CoachHub Admin
           </Link>
         </div>
         <nav className="flex-1 px-4 py-6 space-y-2">
@@ -73,6 +81,9 @@ export default async function AdminLayout({
             Subscriptions
           </Link>
         </nav>
+        <div className="p-4 border-t border-gray-700">
+          <LogoutButton />
+        </div>
       </aside>
 
       {/* Main Content */}
