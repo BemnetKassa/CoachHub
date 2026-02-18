@@ -23,6 +23,7 @@ export function Navbar() {
             <NavLink href="/transformations">TRANSFORMATIONS</NavLink>
             <NavLink href="/about">ABOUT</NavLink>
             <NavLink href="/programs">PROGRAMS</NavLink>
+            <NavLink href="/contact">CONTACT</NavLink>
             
             
             <div className="flex items-center space-x-4 ml-4">
