@@ -221,7 +221,7 @@ export default function AdminTransformationsClient({ initialData }: { initialDat
               <form onSubmit={handleSubmit} className="p-6 space-y-4 max-h-[80vh] overflow-y-auto">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1 flex items-center gap-1">
+                    <label className="text-sm font-medium text-gray-700 mb-1 flex items-center gap-1">
                       <User size={14} /> Client Name
                     </label>
                     <input 
@@ -234,7 +234,7 @@ export default function AdminTransformationsClient({ initialData }: { initialDat
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1 flex items-center gap-1">
+                    <label className="text-sm font-medium text-gray-700 mb-1 flex items-center gap-1">
                       <Trophy size={14} /> Program Taken
                     </label>
                     <input 
@@ -262,7 +262,7 @@ export default function AdminTransformationsClient({ initialData }: { initialDat
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 bg-gray-50 p-4 rounded-lg border border-gray-200">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1 flex items-center gap-1">
+                    <label className="text-sm font-medium text-gray-700 mb-1 flex items-center gap-1">
                       <LinkIcon size={14} /> Before Image URL
                     </label>
                     <input 
@@ -281,7 +281,7 @@ export default function AdminTransformationsClient({ initialData }: { initialDat
                     )}
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1 flex items-center gap-1">
+                    <label className="text-sm font-medium text-gray-700 mb-1 flex items-center gap-1">
                       <LinkIcon size={14} /> After Image URL
                     </label>
                     <input 
@@ -302,7 +302,7 @@ export default function AdminTransformationsClient({ initialData }: { initialDat
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1 flex items-center gap-1">
+                  <label className="text-sm font-medium text-gray-700 mb-1 flex items-center gap-1">
                     <Quote size={14} /> Testimonial Quote
                   </label>
                   <textarea 

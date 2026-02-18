@@ -71,7 +71,7 @@ export default function Transformations({ initialData }: { initialData?: any[] }
             Proven Results
           </span>
           <h1 className="text-3xl md:text-6xl font-black text-white mb-4 md:mb-6 uppercase tracking-tight">
-            Client <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-red-800">Galleries</span>
+            Client <span className="text-transparent bg-clip-text bg-linear-to-r from-red-500 to-red-800">Galleries</span>
           </h1>
           <p className="max-w-xl md:max-w-2xl mx-auto text-base md:text-lg text-neutral-400">
             Real people. Real work. Real results. No shortcuts, just pure dedication and expert coaching.
@@ -97,7 +97,7 @@ export default function Transformations({ initialData }: { initialData?: any[] }
                   <div className="relative grid grid-cols-2 gap-3 md:gap-4">
                     <div className="space-y-1.5 md:space-y-2">
                        <span className="text-neutral-500 text-[10px] md:text-xs font-bold uppercase tracking-wider block text-center">Before</span>
-                       <div className="aspect-[3/4] overflow-hidden rounded-lg grayscale hover:grayscale-0 transition-all duration-500">
+                       <div className="aspect-3/4 overflow-hidden rounded-lg grayscale hover:grayscale-0 transition-all duration-500">
                           <img 
                             src={item.image_before_url} 
                             alt={`Before transformation of ${item.name}`} 
@@ -107,7 +107,7 @@ export default function Transformations({ initialData }: { initialData?: any[] }
                     </div>
                     <div className="space-y-1.5 md:space-y-2">
                        <span className="text-red-600 text-[10px] md:text-xs font-bold uppercase tracking-wider block text-center">After</span>
-                       <div className="aspect-[3/4] overflow-hidden rounded-lg border-2 border-red-600 shadow-2xl shadow-red-900/40">
+                       <div className="aspect-3/4 overflow-hidden rounded-lg border-2 border-red-600 shadow-2xl shadow-red-900/40">
                           <img 
                             src={item.image_after_url} 
                             alt={`After transformation of ${item.name}`} 
