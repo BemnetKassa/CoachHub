@@ -73,7 +73,7 @@ export default async function Dashboard() {
         </div>
         <div className="mt-4 md:mt-0">
           <Link 
-            href="/dashboard/program" 
+            href="/dashboard/programs" 
             className="inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors"
           >
             Go to Workout <ArrowRight className="ml-2 -mr-1 w-4 h-4" />
@@ -114,7 +114,7 @@ export default async function Dashboard() {
         <div className="lg:col-span-2 bg-white p-6 rounded-xl shadow-sm border border-gray-200">
           <div className="flex items-center justify-between mb-4">
             <h3 className="text-lg font-semibold text-gray-900">Next Up</h3>
-            <Link href="/dashboard/program" className="text-sm text-blue-600 hover:text-blue-700 font-medium">View Full Plan</Link>
+            <Link href="/dashboard/programs" className="text-sm text-blue-600 hover:text-blue-700 font-medium">View Full Plan</Link>
           </div>
 
           {currentProgram ? (
@@ -129,7 +129,7 @@ export default async function Dashboard() {
                  </div>
                </div>
                <div className="mt-6 flex gap-3">
-                 <Link href="/dashboard/program" className="flex-1 bg-blue-600 text-white py-2.5 rounded-lg text-sm font-medium hover:bg-blue-700 text-center transition-colors shadow-sm">
+                 <Link href="/dashboard/programs" className="flex-1 bg-blue-600 text-white py-2.5 rounded-lg text-sm font-medium hover:bg-blue-700 text-center transition-colors shadow-sm">
                     Start Workout
                  </Link>
                </div>

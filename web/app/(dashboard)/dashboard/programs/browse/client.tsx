@@ -46,7 +46,7 @@ export default function BrowseProgramsClient({
       if (error) throw error;
 
       router.refresh();
-      router.push("/dashboard/program");
+      router.push("/dashboard/programs");
     } catch (error: any) {
       console.error("Error starting program:", error);
       alert("Failed to start program. Please try again.");

@@ -24,8 +24,8 @@ export function StudentSidebar({ userEmail }: { userEmail?: string }) {
 
   const menuItems = [
     { href: "/dashboard", icon: LayoutDashboard, label: "Dashboard" },
-    { href: "/dashboard/program", icon: Dumbbell, label: "My Program" },
-    { href: "/dashboard/program/browse", icon: Search, label: "Browse Programs" },
+    { href: "/dashboard/programs", icon: Dumbbell, label: "My Program" },
+    { href: "/dashboard/programs/browse", icon: Search, label: "Browse Programs" },
     { href: "/dashboard/progress", icon: TrendingUp, label: "Progress Tracking" },
     { href: "/dashboard/settings", icon: Settings, label: "Settings" },
   ];
