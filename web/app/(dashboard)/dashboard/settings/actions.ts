@@ -4,6 +4,7 @@ import { stripe } from "@/lib/stripe/server";
 import { createClient } from "@/lib/supabase/server";
 import { redirect } from "next/navigation";
 import { headers } from "next/headers";
+import { revalidatePath } from "next/cache";
 
 export async function createPortalSession() {
   const supabase = await createClient();
@@ -74,5 +75,5 @@ export async function updateProfile(formData: FormData) {
     }
   }
   
-  return { success: true };
+  revalidatePath("/dashboard/settings");
 }
