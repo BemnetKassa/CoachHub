@@ -15,14 +15,20 @@ export default async function BrowsePage() {
   
   // 1. Fetch User's Program ID
   let currentProgramId = null;
-  const { data: userData } = await supabase
-      .from("users")
-      .select("current_program_id")
-      .eq("id", user.id)
-      .single();
-  
-  if (userData) {
-      currentProgramId = userData.current_program_id;
+  try {
+    const { data: userData, error: userError } = await supabase
+        .from("users")
+        .select("current_program_id")
+        .eq("id", user.id)
+        .maybeSingle(); // Changed single() to maybeSingle() to avoid 406/404 errors if no row
+    
+    if (userError) {
+        console.warn("Note: Skipping user program check as column/table might not exist:", userError.message);
+    } else if (userData) {
+        currentProgramId = userData.current_program_id;
+    }
+  } catch (e) {
+    console.error("Unexpected error fetching user data:", e);
   }
   
   // 2. Fetch All Programs
@@ -32,20 +38,13 @@ export default async function BrowsePage() {
       .order("created_at", { ascending: false });
   
   if (error) {
-      console.error("Error fetching programs:", JSON.stringify(error, null, 2));
-      console.error("Full Error Object:", error);
+      console.error("Error fetching programs details:", error);
       return (
-          <div className="p-8">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
               <div className="bg-red-50 border-l-4 border-red-400 p-4">
-                  <div className="flex">
-                      <div className="ml-3">
-                          <p className="text-sm text-red-700">
-                              Error loading programs: {error.message || "Unknown error"}
-                              <br />
-                              <span className="text-xs">{error.details || ""}</span>
-                          </p>
-                      </div>
-                  </div>
+                  <p className="text-sm text-red-700">
+                      Error loading programs. Please contact support if this persists.
+                  </p>
               </div>
           </div>
       );
