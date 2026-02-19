@@ -3,8 +3,9 @@
 import { createClient } from "@/lib/supabase/client";
 import { useRouter } from "next/navigation";
 import { LogOut } from "lucide-react";
+import { cn } from "@/lib/utils";
 
-export function LogoutButton() {
+export function LogoutButton({ hideLabel = false }: { hideLabel?: boolean }) {
   const router = useRouter();
   const supabase = createClient();
 
@@ -17,10 +18,14 @@ export function LogoutButton() {
   return (
     <button
       onClick={handleLogout}
-      className="flex w-full items-center px-4 py-2 text-white hover:bg-gray-700 rounded-md transition-colors"
+      title={hideLabel ? "Logout" : ""}
+      className={cn(
+        "flex w-full items-center text-white hover:bg-gray-700 rounded-md transition-colors",
+        hideLabel ? "justify-center p-3" : "px-4 py-2"
+      )}
     >
-      <LogOut className="mr-2 h-4 w-4" />
-      Logout
+      <LogOut className={cn("h-4 w-4", !hideLabel && "mr-2")} />
+      {!hideLabel && <span>Logout</span>}
     </button>
   );
 }
