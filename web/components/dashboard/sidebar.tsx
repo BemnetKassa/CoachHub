@@ -7,38 +7,43 @@ import {
   Menu,
   X,
   LayoutDashboard,
-  Database,
-  Users,
-  Camera,
-  CreditCard,
   Dumbbell,
+  TrendingUp,
   Settings,
   PanelLeftClose,
   PanelLeftOpen,
+  LogOut,
+  Search,
 } from "lucide-react";
-import { LogoutButton } from "./logout-button";
 import { cn } from "@/lib/utils";
 
-export function AdminSidebar() {
+export function StudentSidebar({ userEmail }: { userEmail?: string }) {
   const [isOpen, setIsOpen] = useState(false);
   const [isCollapsed, setIsCollapsed] = useState(false);
   const pathname = usePathname();
 
   const menuItems = [
-    { href: "/admin", icon: LayoutDashboard, label: "Dashboard" },
-    { href: "/admin/programs", icon: Dumbbell, label: "Programs" },
-    { href: "/admin/students", icon: Users, label: "Students" },
-    { href: "/admin/transformations", icon: Camera, label: "Transformations" },
-    { href: "/admin/pricing", icon: CreditCard, label: "Pricing" },
-    { href: "/admin/workouts", icon: Database, label: "Workouts" },
-    { href: "/admin/subscriptions", icon: Settings, label: "Subscriptions" },
+    { href: "/dashboard", icon: LayoutDashboard, label: "Dashboard" },
+    { href: "/dashboard/program", icon: Dumbbell, label: "My Program" },
+    { href: "/dashboard/program/browse", icon: Search, label: "Browse Programs" },
+    { href: "/dashboard/progress", icon: TrendingUp, label: "Progress Tracking" },
+    { href: "/dashboard/settings", icon: Settings, label: "Settings" },
   ];
+
+  const handleLogout = async () => {
+    // We'll use a form submission or an API call to handle logout
+    const form = document.createElement('form');
+    form.method = 'POST';
+    form.action = '/auth/signout';
+    document.body.appendChild(form);
+    form.submit();
+  };
 
   return (
     <>
       {/* Mobile Top Bar */}
-      <div className="md:hidden fixed top-0 left-0 right-0 h-16 bg-gray-900 flex items-center justify-between px-6 z-50 border-b border-gray-800">
-        <Link href="/admin" className="flex items-center space-x-2">
+      <div className="md:hidden fixed top-0 left-0 right-0 h-16 bg-gray-950 flex items-center justify-between px-6 z-50 border-b border-neutral-800">
+        <Link href="/dashboard" className="flex items-center space-x-2">
           <Dumbbell className="text-red-600 h-6 w-6 transform -rotate-45" />
           <span className="text-xl font-black tracking-tighter text-white">
             COACH<span className="text-red-600">HUB</span>
@@ -46,7 +51,7 @@ export function AdminSidebar() {
         </Link>
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="p-2 text-gray-400 hover:text-white transition-colors"
+          className="p-2 text-neutral-400 hover:text-white transition-colors"
           aria-label="Toggle Menu"
         >
           {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -64,15 +69,16 @@ export function AdminSidebar() {
       {/* Sidebar Content */}
       <aside
         className={cn(
-          "fixed inset-y-0 left-0 z-40 bg-gray-900 border-r border-gray-800 flex flex-col pt-16 md:pt-0 transform transition-all duration-300 ease-in-out",
+          "fixed inset-y-0 left-0 z-40 bg-neutral-950 border-r border-neutral-800 flex flex-col pt-16 md:pt-0 transform transition-all duration-300 ease-in-out",
           "md:static md:translate-x-0 md:h-screen md:min-h-screen",
           isOpen ? "translate-x-0" : "-translate-x-full",
           isCollapsed ? "md:w-20" : "md:w-64",
           "w-64" // default mobile width
         )}
       >
-        <div className="hidden md:flex h-20 items-center justify-between px-6 border-b border-gray-800">
-          <Link href="/admin" className="flex items-center">
+        {/* Desktop Header */}
+        <div className="hidden md:flex h-20 items-center justify-between px-6 border-b border-neutral-900">
+          <Link href="/dashboard" className="flex items-center">
             <Dumbbell className={cn("text-red-600 transition-all", isCollapsed ? "h-8 w-8 mx-auto -rotate-45" : "h-6 w-6 mr-3 -rotate-45")} />
             {!isCollapsed && (
               <span className="text-2xl font-black tracking-tighter text-white overflow-hidden whitespace-nowrap">
@@ -83,19 +89,20 @@ export function AdminSidebar() {
           {!isCollapsed && (
             <button
               onClick={() => setIsCollapsed(true)}
-              className="p-1.5 rounded-lg bg-gray-800 text-gray-400 hover:text-white transition-colors"
+              className="p-1.5 rounded-lg bg-neutral-900 text-neutral-400 hover:text-white transition-colors"
               title="Collapse Sidebar"
             >
               <PanelLeftClose size={20} />
             </button>
           )}
         </div>
-        
+
+        {/* Collapsed Toggle Button */}
         {isCollapsed && (
           <div className="hidden md:flex justify-center p-4">
              <button
                 onClick={() => setIsCollapsed(false)}
-                className="p-1.5 rounded-lg bg-gray-800 text-gray-400 hover:text-white transition-colors"
+                className="p-1.5 rounded-lg bg-neutral-900 text-neutral-400 hover:text-white transition-colors"
                 title="Expand Sidebar"
               >
                 <PanelLeftOpen size={20} />
@@ -103,6 +110,7 @@ export function AdminSidebar() {
           </div>
         )}
 
+        {/* Navigation Links */}
         <nav className="flex-1 px-4 py-8 space-y-1 overflow-y-auto">
           {menuItems.map((item) => {
             const Icon = item.icon;
@@ -117,7 +125,7 @@ export function AdminSidebar() {
                   "flex items-center rounded-lg transition-all group font-medium text-sm",
                   isActive
                     ? "bg-red-600 text-white shadow-lg shadow-red-900/20"
-                    : "text-gray-400 hover:text-white hover:bg-gray-800/50",
+                    : "text-neutral-400 hover:text-white hover:bg-neutral-900/50",
                   isCollapsed ? "justify-center p-3" : "space-x-3 px-4 py-3"
                 )}
               >
@@ -126,7 +134,7 @@ export function AdminSidebar() {
                   className={cn(
                     isActive
                       ? "text-white"
-                      : "text-gray-500 group-hover:text-red-500 transition-colors",
+                      : "text-neutral-500 group-hover:text-red-500 transition-colors",
                     !isCollapsed && "min-w-5"
                   )}
                 />
@@ -138,8 +146,26 @@ export function AdminSidebar() {
           })}
         </nav>
 
-        <div className={cn("p-4 border-t border-gray-800 bg-gray-900/50", isCollapsed ? "flex justify-center" : "")}>
-          <LogoutButton hideLabel={isCollapsed} />
+        {/* Footer / User Email */}
+        <div className={cn("p-4 border-t border-neutral-900 bg-neutral-950/50", isCollapsed ? "flex flex-col items-center" : "")}>
+          {!isCollapsed && userEmail && (
+            <div className="mb-4 px-2 overflow-hidden">
+                <p className="text-xs text-neutral-500 truncate" title={userEmail}>
+                    {userEmail}
+                </p>
+            </div>
+          )}
+          <button
+            onClick={handleLogout}
+            title={isCollapsed ? "Logout" : ""}
+            className={cn(
+              "flex w-full items-center text-neutral-400 hover:text-white hover:bg-neutral-800 rounded-md transition-colors",
+              isCollapsed ? "justify-center p-3" : "px-4 py-2"
+            )}
+          >
+            <LogOut className={cn("h-4 w-4", !isCollapsed && "mr-2")} />
+            {!isCollapsed && <span>Logout</span>}
+          </button>
         </div>
       </aside>
     </>
