@@ -28,11 +28,15 @@ export default async function AdminLayout({
   }
 
   return (
-    <div className="min-h-screen bg-gray-100 flex flex-col md:flex-row">
+    <div className="flex h-screen bg-neutral-50 overflow-hidden">
       <AdminSidebar />
-      <main className="flex-1 p-4 md:p-8 overflow-y-auto mt-16 md:mt-0">
-        {children}
-      </main>
+      <div className="flex flex-col flex-1 w-0 overflow-hidden">
+        <main className="relative flex-1 overflow-y-auto focus:outline-none p-4 md:p-8 mt-16 md:mt-0">
+          <div className="max-w-7xl mx-auto">
+            {children}
+          </div>
+        </main>
+      </div>
     </div>
   );
 }
